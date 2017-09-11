@@ -4,7 +4,7 @@ import java.util.Set;
 
 public class CertifiedEmployee extends Employee {
 
-	private Set certificates;
+	private Set<Certificate> certificates;
 
 	public CertifiedEmployee() {
 	}
@@ -13,11 +13,11 @@ public class CertifiedEmployee extends Employee {
 		super(firstName, lastName, sallary);
 	}
 
-	public Set getCertificates() {
+	public Set<Certificate> getCertificates() {
 		return certificates;
 	}
 
-	public void setCertificates(Set certificates) {
+	public void setCertificates(Set<Certificate> certificates) {
 		this.certificates = certificates;
 	}
 

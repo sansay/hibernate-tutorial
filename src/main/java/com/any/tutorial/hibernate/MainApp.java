@@ -15,15 +15,7 @@ public class MainApp {
 		return value;
 	}
 
-	public static void main(String[] args) {
-		SessionFactory sf = null;
-		try {
-
-			sf = new Configuration().configure().buildSessionFactory();
-		} catch (Throwable t) {
-			System.err.println("Cannot create session factory " + t);
-			throw new ExceptionInInitializerError(t);
-		}
+	private static void employeeApp(SessionFactory sf) {
 		ManageEmployee me = new ManageEmployee(sf);
 		
 		me.deleteAll();
@@ -39,6 +31,20 @@ public class MainApp {
 		me.deleteEmployee(emp2);
 
 		me.listEmployees();
+		
+	}
+	
+	public static void main(String[] args) {
+		SessionFactory sf = null;
+		try {
+
+			sf = new Configuration().configure().buildSessionFactory();
+		} catch (Throwable t) {
+			System.err.println("Cannot create session factory " + t);
+			throw new ExceptionInInitializerError(t);
+		}
+		
+		employeeApp(sf);
 
 	}
 }

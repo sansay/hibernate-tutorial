@@ -14,7 +14,7 @@ import com.any.tutorial.hibernate.beans.Employee;
 
 public class ManageEmployee {
 
-	private SessionFactory sessionFactory;
+	protected SessionFactory sessionFactory;
 
 	public ManageEmployee(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;

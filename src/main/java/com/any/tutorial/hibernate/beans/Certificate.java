@@ -3,16 +3,13 @@ package com.any.tutorial.hibernate.beans;
 public class Certificate {
 
 	private int id;
-	private String firstName;
-	private String lastName;
-	private int sallary;
+	private String name;
 
-	public Certificate() {	}
+	public Certificate() {
+	}
 
-	public Certificate(String firstName, String lastName, int sallary) {
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.sallary = sallary;
+	public Certificate(String name) {
+		this.name = name;
 	}
 
 	public int getId() {
@@ -23,28 +20,33 @@ public class Certificate {
 		this.id = id;
 	}
 
-	public String getFirstName() {
-		return firstName;
+	public String getName() {
+		return name;
 	}
 
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public String getLastName() {
-		return lastName;
+	@Override
+	public int hashCode() {
+		int tmp = 0;
+		tmp = (id + name).hashCode();
+		return tmp;
 	}
 
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
+	@Override
+	public boolean equals(Object obj) {
+		if (obj == null)
+			return false;
+		if (!this.getClass().equals(obj.getClass()))
+			return false;
 
-	public int getSallary() {
-		return sallary;
-	}
-
-	public void setSallary(int sallary) {
-		this.sallary = sallary;
+		Certificate certObj = (Certificate) obj;
+		if ((this.getId() == certObj.getId()) && (this.getName().equals(certObj.getName()))) {
+			return true;
+		}
+		return false;
 	}
 
 }
